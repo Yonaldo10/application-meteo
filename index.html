@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeatherScope</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- EN-TÊTE -->
+    <div class="app-header">
+      <div class="header-left">
+        <i class="fas fa-cloud-sun app-logo"></i>
+        <div>
+          <h1>WeatherScope</h1>
+          <p class="subtitle">Météo en temps réel</p>
+        </div>
+      </div>
+      <div id="clock" class="clock">--:--:--</div>
+    </div>
+
+    <!-- RECHERCHE -->
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" id="cityInput" placeholder="Rechercher une ville…" autocomplete="off">
+      <button id="searchButton">Rechercher</button>
+    </div>
+
+    <!-- ÉTAT VIDE (par défaut) -->
+    <div id="empty-state" class="empty-state">
+      <i class="fas fa-search-location"></i>
+      <p>Entrez une ville pour afficher la météo</p>
+    </div>
+
+    <!-- ERREUR -->
+    <div id="error-state" class="error-state hidden">
+      <i class="fas fa-exclamation-circle"></i>
+      <p>Ville introuvable. Vérifiez l'orthographe.</p>
+    </div>
+
+    <!-- RÉSULTATS -->
+    <div id="weather-result" class="hidden">
+
+      <!-- Ville + icône météo -->
+      <div class="weather-hero">
+        <div class="weather-city">
+          <i class="fas fa-map-marker-alt"></i>
+          <span id="cityName">--</span>
+        </div>
+        <div class="weather-condition">
+          <i id="conditionIcon" class="fas fa-cloud"></i>
+          <span id="conditionText">--</span>
+        </div>
+      </div>
+
+      <!-- 4 cartes -->
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-icon" style="background:rgba(255,107,107,.15); color:#ff6b6b;">
+            <i class="fas fa-thermometer-half"></i>
+          </div>
+          <div class="card-info">
+            <div class="card-label">Température</div>
+            <div class="card-value" id="temp">--</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background:rgba(74,144,226,.15); color:#4a90e2;">
+            <i class="fas fa-tint"></i>
+          </div>
+          <div class="card-info">
+            <div class="card-label">Humidité</div>
+            <div class="card-value" id="humidity">--</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background:rgba(80,227,194,.15); color:#50e3c2;">
+            <i class="fas fa-wind"></i>
+          </div>
+          <div class="card-info">
+            <div class="card-label">Vent</div>
+            <div class="card-value" id="wind">--</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background:rgba(245,166,35,.15); color:#f5a623;">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="card-info">
+            <div class="card-label">Heure locale</div>
+            <div class="card-value" id="localTime">--</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
